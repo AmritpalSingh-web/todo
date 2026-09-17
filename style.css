@@ -1,0 +1,260 @@
+:root {
+    --background: rgb(41, 41, 41);
+    --primary: rgb(226, 224, 224);
+    --placeholder: rgb(133, 136, 136);
+    --fonthead: "Satisfy", cursive;
+    --searchbg: rgb(84, 85, 85);
+    --searchfont: "Courier New", Courier, monospace;
+    --searchhover: rgb(60, 60, 60);
+    --butoncolor: rgb(107, 106, 106);
+    --tasksbg: rgb(82, 88, 89);
+    --button-primary: #2563eb;
+    --button-secondary: #4b5563;
+    --button-danger: #dc2626;
+    --button-text: #f5f5f5;
+} 
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    background-color: var(--background);
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    margin-top: 70px;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.heading {
+    color: var(--primary);
+    font-family: var(--fonthead);
+    font-weight: 100;
+    font-size: 2rem;
+}
+
+.searchbar {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.searchbar img {
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+
+.searchbar img:hover,
+.searchbar img:active {
+    transform: translateY(-5px);
+    background-color: #b7afaf;
+    box-shadow: 0 4px 12px rgb(255, 254, 254);
+    filter: invert();
+}
+
+.searchbar input {
+    margin-left: 3.5rem;
+    margin-bottom: 50px;
+}
+
+input {
+    background-color: var(--searchbg);
+    color: var(--primary);
+    font-family: var(--searchfont);
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    padding: 7px 13px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    transition: tranform 0.3s ease, background-color 0.3s ease;
+}
+
+input::placeholder {
+    color: var(--placeholder);
+}
+
+input:hover,
+input:focus {
+    background-color: var(--searchhover);
+    transform: translateY(-3px);
+}
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 24rem;
+    margin-top: 30px;
+}
+
+.tasks {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 50px;
+    width: 100%;
+    padding: 10px 20px 10px 30px;
+    background-color: var(--tasksbg);
+    border-radius: 20px;
+    border-left: 3px solid blue;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+    box-sizing: border-box;
+}
+
+.tasks:hover {
+    transform: translateX(-7px);
+}
+
+.tasks h2 {
+    color: black;
+    font-family: var(--fonthead);
+    font-weight: 300;
+    margin: 0;
+}
+
+.task-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    color: var(--primary);
+    font-family: var(--searchfont);
+    font-size: 0.8rem;
+}
+
+.task-remove {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.task-remove img {
+    align-self: flex-end;
+    cursor: pointer;
+    width: 22px;
+    height: 22px;
+}
+
+body:has(dialog[open]) .main {
+    filter: blur(6px);
+    transition: filter 0.25s ease;
+}
+
+dialog {
+    background-color: var(--background);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    position: fixed;
+    inset: 50% auto auto 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+}
+
+#add_task_form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 600px;
+    width: 400px;
+    gap: 50px;
+}
+
+#add_task_form input {
+    width: 300px;
+}
+
+#add_task_form h3 {
+    color: var(--primary);
+    font-family: var(--fonthead);
+    font-weight: 300;
+    font-size: 30px;
+}
+
+textarea {
+    width: 300px;
+    height: 100px;
+    resize: none;
+    overflow: hidden;
+    background-color: var(--searchbg);
+    color: var(--primary);
+    font-family: var(--searchfont);
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    padding: 7px 13px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    transition: tranform 0.3s ease, background-color 0.3s ease;
+}
+
+textarea::placeholder {
+    font-family: var(--placeholder);
+}
+
+textarea:hover,
+textarea:focus {
+    background-color: var(--searchhover);
+    transform: translateY(-3px);
+}
+
+.form_action {
+    display: flex;
+    gap: 50px;
+    margin-top: 40px;
+}
+
+.form_action button {
+    min-width: 100px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 18px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--button-text);
+    cursor: pointer;
+    transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.form_action button:hover,
+.form_action button:focus {
+    transform: translateY(-2px);
+    filter: brightness(1.08);
+}
+
+.form_action button:active {
+    transform: translateY(0);
+}
+
+.form_action button[type="submit"],
+.form_action button.primary {
+    background-color: var(--button-primary);
+}
+
+.form_action button[type="button"],
+.form_action button.secondary {
+    background-color: var(--button-secondary);
+}
+
+.form_action button.danger {
+    background-color: var(--button-danger);
+}

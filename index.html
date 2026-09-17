@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="heading">
+            <h1>Todo List</h1>
+        </div>
+
+        <div class="searchbar">
+            <input id="search_input" type="text" placeholder="Search here...">
+            <img src="add_icon.svg" class="add-btn" alt="Add">
+        </div>
+
+        <div id="task_list" class="task-list"></div>
+    </div>
+
+    <dialog id="add_task">
+        <form id="add_task_form" method="dialog">
+            <h3>Add a New Task</h3>
+
+            <input type="text" id="task_title" placeholder="What's the Title!" required>
+
+            <textarea name="task_description" id="task_description" rows="3" maxlength="180" placeholder="Short Description for 180 characters..." required></textarea>
+
+            <input type="date" id="task_due" placeholder="Due Date (DD/MM/YYYY)" required>
+
+            <div class="form_action">
+                <button type="button" id="cancel">Cancel</button>
+                <button type="submit" id="add">Add</button>
+            </div>
+        </form>
+    </dialog>
+
+    <script src="script.js"></script>
+</body>
+</html>
